@@ -19,26 +19,33 @@
 - markdownify
 
 ### Usage
-**単一の問題を取得する場合（例: abc199_a など）**
-問題文のurlを引数に与えて実行する
+ファイル名: `get_problem_md.py`
+
+**単一の問題を取得する場合（例: ABC199のA問題 など）**
+
+- 問題文のurlを引数として与えて実行する
 
 ``` python
 python get_problem_md.py https://atcoder.jp/contests/abc199/tasks/abc199_a
 ```
 
-**複数の問題を取得する場合（例: A問題からF問題まで など）**
--r (--range)で範囲を以下のように指定する
-- `-r abdf`: A, B, D, F問題を取得
-- `-r a-d`: AからD問題までを取得
-    - この指定法は`a-d`と`a-f`のみ対応
+**複数の問題を取得する場合（例: ABC199のA問題からF問題まで など）**
+
+- 対象コンテストのいずれかの問題文のurlを引数として与える
+
+- `-r (--range)`で範囲を以下のように指定する
+    - 例: `-r abdf` (A, B, D, F問題を取得)
+    - 例: `-r a-d` (AからD問題までを取得)
+        - この指定法は`a-d`と`a-f`のみ対応
 
 ```python
-python get_problem_md.py https://atcoder.jp/contests/zone2021/tasks/zone2021_a -r a-f
+python get_problem_md.py https://atcoder.jp/contests/abc199/tasks/abc199_a -r a-f
 ```
 
 **カレントディレクトリ以外にmdファイルを保存する場合**
--d (--dir)で指定する
-- `-d ./hoge`
+
+- `-d (--dir)`で指定する:  
+    - 例: `-d ./hoge`
 
 ### 出力の例
 [ZONeエナジー プログラミングコンテスト “HELLO SPACE”: A - UFO襲来](https://atcoder.jp/contests/zone2021/tasks/zone2021_a)
@@ -195,7 +202,6 @@ S の 8 文字目から 11 文字目までが Zone となっていますが、�
 
 出力例の引用終わり
 
-
-**ToDo**
-- 空白行の除去
+### 今後やりたいこと
+- 空白行の除去 (マークダウンでは複数(n>2)の空白行は無視されるので問題はないが)
 - 数式への対応
