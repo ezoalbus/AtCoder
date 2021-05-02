@@ -14,6 +14,18 @@ fi
 
 mkdir $contest_name && cd $contest_name
 
+# 問題文の取得
 poetry run python ../../get_problem_md.py $url -r a-f 
 
+# スクリプトの作成
+for c in a b c d e f; do
+    {
+    echo "#include <bits/stdc++.h>"
+    echo "using namespace std;"
+    echo ""
+    echo -e "int main() {\n}"     
+    } >> "${contest_name}_${c}.cpp"
+done
+
+# VSCodeで編集
 code .
